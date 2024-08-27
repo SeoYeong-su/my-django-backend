@@ -1,12 +1,13 @@
 version: "3.11" # 도커 컴포즈 버전
 services:
   app:
+    tty: true
     build:
       context: .
-      args: 
+      args:
         - DEV=true
     ports:
-      - 8000:8000
+      - "8000:8000"
     volumes:
       - ./app:/app
     command: sh -c "python manage.py runserver 0.0.0.0:8000"
